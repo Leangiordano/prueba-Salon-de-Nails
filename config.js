@@ -6,15 +6,15 @@
 
 window.AGENDA_CONFIG = {
   business: {
-    name: "Atelier Nails",
+    name: "Prueba Nails",
     tagline: "Manicura, pedicura y estética",
     description:
       "Reservá tu turno online. Elegí el servicio, la profesional y el horario. La seña se acredita directo a la cuenta del salón.",
-    address: "Tu dirección, Buenos Aires, Argentina",
-    phoneDisplay: "11 0000-0000",
-    phoneWhatsApp: "5491100000000", // formato internacional sin + ni espacios
-    instagram: "tuinstagram",
-    email: "hola@tudominio.com",
+    address: "Palos 471, Buenos Aires, Argentina",
+    phoneDisplay: "11 5319-5024",
+    phoneWhatsApp: "5491153195024",
+    instagram: "leangiordano",
+    email: "lea2914@gmail.com",
     timezone: "America/Argentina/Buenos_Aires",
     currency: "ARS",
     currencySymbol: "$"
@@ -31,20 +31,19 @@ window.AGENDA_CONFIG = {
   },
 
   booking: {
-    slotMinutes: 15,              // grilla de horarios
-    minNoticeHours: 2,            // no reservar con menos de X horas
-    maxDaysAhead: 30,             // calendario hacia adelante
-    holdMinutes: 15,              // reserva temporal hasta pagar la seña
+    slotMinutes: 15,
+    minNoticeHours: 2,
+    maxDaysAhead: 30,
+    holdMinutes: 15,
     requireDeposit: true,
-    depositType: "percent",       // "percent" | "fixed"
-    depositPercent: 30,           // 30% de seña
-    depositFixed: 5000,           // si depositType = "fixed"
-    allowPayLater: false,         // si true, permite reservar sin seña
+    depositType: "percent",
+    depositPercent: 50,
+    depositFixed: 5000,
+    allowPayLater: false,
     cancellationHours: 12
   },
 
   hours: {
-    // 0 = domingo … 6 = sábado
     0: null,
     1: { start: "10:00", end: "19:00" },
     2: { start: "10:00", end: "19:00" },
@@ -245,8 +244,6 @@ window.AGENDA_CONFIG = {
   mercadoPago: {
     enabled: false,
     publicKey: "APP_USR-xxxxxxxx",
-    /* El Access Token NUNCA va en el frontend.
-       Va en Vercel Environment Variable: MP_ACCESS_TOKEN */
     apiCreatePreference: "/api/create-preference",
     successUrl: "/gracias.html",
     pendingUrl: "/pendiente.html",
@@ -254,7 +251,7 @@ window.AGENDA_CONFIG = {
   },
 
   admin: {
-    pin: "2468",
+    pin: "2914",
     storageKey: "agenda_propia_v1"
   }
 };
