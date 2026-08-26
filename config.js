@@ -40,7 +40,7 @@ window.AGENDA_CONFIG = {
     depositPercent: 50,           // 50% de seña
     depositFixed: 5000,           // si depositType = "fixed"
     allowPayLater: false,         // si true, permite reservar sin seña
-    cancellationHours: 12
+    cancellationHours: 24
   },
 
   hours: {
