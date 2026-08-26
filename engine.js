@@ -232,6 +232,12 @@
     saveState(data);
   }
 
+  function clearAllAppointments() {
+    const state = loadState();
+    state.appointments = [];
+    saveState(state);
+  }
+
   function applyTheme() {
     const b = C().brand;
     const r = document.documentElement;
@@ -252,6 +258,6 @@
     getService, getPro, depositFor, availableSlots, nextDays,
     fillTemplate, messageData, whatsappLink,
     createAppointment, updateAppointment, confirmPayment, cancelAppointment,
-    exportState, importState, applyTheme, hoursForPro
+    exportState, importState, clearAllAppointments, applyTheme, hoursForPro
   };
 })(window);

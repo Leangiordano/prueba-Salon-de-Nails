@@ -129,4 +129,10 @@
     };
     reader.readAsText(f);
   };
+  $("#btnClearAll").onclick = () => {
+    if (!confirm("¿Borrar TODOS los turnos? Esta acción no se puede deshacer.")) return;
+    E.clearAllAppointments();
+    toast("Todos los turnos borrados");
+    render();
+  };
 })();
