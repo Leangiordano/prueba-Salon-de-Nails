@@ -2,63 +2,142 @@
 <html lang="es-AR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Admin · Agenda</title>
+  <meta name="theme-color" content="#7A3048" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body.admin-page { background: var(--bg); }
+    #lock {
+      max-width: 420px;
+      margin: 24px auto;
+      padding: 20px 16px;
+    }
+    #desk { display: none; }
+    #desk.is-open { display: block; }
+    #lock.is-hidden { display: none; }
+
+    .admin-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px 0 calc(32px + env(safe-area-inset-bottom, 0px));
+    }
+    .admin-stack .panel h2 {
+      font-size: 18px;
+      margin: 4px 0 10px;
+    }
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .btn-row .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .appt-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+    .appt-card .time {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .appt-card .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .appt-card .actions .btn { width: 100%; }
+
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -4px;
+      padding-bottom: 4px;
+    }
+    .table {
+      min-width: 480px;
+      font-size: 12px;
+    }
+    .table th, .table td {
+      padding: 8px 6px;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 700px) {
+      .btn-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .btn-row .btn { width: auto; flex: 1; }
+      .appt-card .actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .appt-card .actions .btn { width: auto; flex: 1; }
+    }
+  </style>
 </head>
-<body>
+<body class="admin-page">
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="logo" href="./">Volver al sitio</a>
-      <nav class="nav-links">
-        <span id="adminBiz"></span>
-      </nav>
+      <a class="logo" href="./">← Sitio</a>
+      <span id="adminBiz" class="nav-links" style="color:var(--muted);font-size:13px"></span>
     </div>
   </header>
 
   <main class="wrap">
-    <section id="lock" class="hero-card" style="max-width:420px;margin:40px auto;">
+    <section id="lock" class="hero-card">
       <div class="kicker">Panel</div>
-      <h1>Admin</h1>
-      <p class="lead">Ingresá el PIN de config.js (por defecto 2468). Cambialo antes de publicar.</p>
-      <label>PIN</label>
-      <input id="pin" type="password" inputmode="numeric" />
-      <p><button class="btn" id="unlock">Entrar</button></p>
+      <h1 style="font-size:24px;margin:0 0 8px">Admin</h1>
+      <p class="lead" style="margin-bottom:12px">Ingresá el PIN. Por defecto es 2468 — cambialo en config.js.</p>
+      <label for="pin">PIN</label>
+      <input id="pin" type="password" inputmode="numeric" autocomplete="one-time-code" />
+      <p style="margin-top:12px">
+        <button class="btn block" id="unlock" type="button">Entrar</button>
+      </p>
     </section>
 
-    <section id="desk" class="admin-grid" hidden>
-      <aside>
-        <div class="panel">
-          <div class="kicker">Agenda</div>
-          <h2 style="margin:6px 0 12px">Hoy y próximos</h2>
-          <label>Día</label>
-          <input type="date" id="adminDate" />
-          <label>Profesional</label>
-          <select id="adminPro"></select>
-          <p style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
-            <button class="btn ghost" id="btnExport">Exportar JSON</button>
-            <button class="btn ghost" id="btnImport">Importar</button>
-            <button class="btn danger" id="btnClearAll">Borrar todos los turnos</button>
-          </p>
-          <input type="file" id="fileImport" accept="application/json" hidden />
+    <section id="desk" class="admin-stack">
+      <div class="panel">
+        <div class="kicker">Agenda</div>
+        <h2>Hoy y próximos</h2>
+        <label for="adminDate">Día</label>
+        <input type="date" id="adminDate" />
+        <label for="adminPro">Profesional</label>
+        <select id="adminPro"></select>
+        <div class="btn-row">
+          <button class="btn ghost" id="btnExport" type="button">Exportar JSON</button>
+          <button class="btn ghost" id="btnImport" type="button">Importar</button>
+          <button class="btn danger" id="btnClearAll" type="button">Borrar todos</button>
         </div>
-        <div class="panel" style="margin-top:12px">
-          <div class="kicker">Recordatorios</div>
-          <p class="lead">WhatsApp no sale solo hasta que conectes la API. Desde acá mandás el mensaje con un toque.</p>
-          <button class="btn" id="btnRemindDay">Recordatorios del día elegido</button>
-        </div>
-      </aside>
-      <div>
-        <div class="panel" id="dayList"></div>
-        <div class="panel" style="margin-top:12px">
-          <div class="kicker">Todos los turnos</div>
-          <div class="table-wrap">
-            <table class="table" id="allTable"></table>
-          </div>
+        <input type="file" id="fileImport" accept="application/json" hidden />
+      </div>
+
+      <div class="panel">
+        <div class="kicker">Recordatorios</div>
+        <p class="lead" style="margin-bottom:10px">WhatsApp manual: abrís el chat con el texto listo.</p>
+        <button class="btn block" id="btnRemindDay" type="button">Recordatorios del día</button>
+      </div>
+
+      <div class="panel" id="dayList"></div>
+
+      <div class="panel">
+        <div class="kicker">Todos los turnos</div>
+        <div class="table-wrap">
+          <table class="table" id="allTable"></table>
         </div>
       </div>
     </section>
   </main>
+
   <div class="toast" id="toast"></div>
   <script src="config.js"></script>
   <script src="engine.js"></script>
