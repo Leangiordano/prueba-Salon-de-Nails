@@ -177,14 +177,19 @@
     }
 
     const dep = E.depositFor(s);
+    const pay = C.payment || {};
+    const aliasBlock = pay.mode === "alias" && pay.alias
+      ? `<div class="alias-box">Seña por transferencia<br><code>${pay.alias}</code><br><span class="meta">${pay.aliasLabel || "Alias"} · ${pay.instructions || ""}</span></div>`
+      : `<div class="meta">El resto se abona en el salón.</div>`;
     $("#mSum").innerHTML = `
       <div><span>Servicio</span><span>${s.name}</span></div>
       <div><span>Duración</span><span>${s.duration} min</span></div>
       <div><span>Total</span><span>${E.money(s.price)}</span></div>
       <div class="total"><span>Seña ahora</span><span>${E.money(dep)}</span></div>
-      <div class="meta">El resto se abona en el salón. La seña se acredita a la cuenta de Mercado Pago del negocio.</div>
+      ${aliasBlock}
     `;
     $("#confirmBtn").disabled = !(state.serviceId && state.professionalId && state.date && state.time);
+    $("#confirmBtn").textContent = pay.mode === "alias" ? "Reservar y ver datos de seña" : "Pagar seña y reservar";
   }
 
   function pickFirstAvailable() { return null; }
@@ -226,8 +231,10 @@
       } catch (err) {
         toast("No se pudo abrir Mercado Pago. Dejamos el turno en espera de seña. " + err.message);
       }
+    } else if ((C.payment && C.payment.mode === "alias") || !C.mercadoPago.enabled) {
+      // Alias / transferencia: queda en espera de seña hasta que el admin marque "Seña ok"
+      // (no confirmamos automático)
     } else {
-      // Demo: confirma la seña como "simulada" para que puedas probar el flujo completo.
       E.confirmPayment(appt.id, "demo-local");
     }
 
@@ -238,9 +245,19 @@
   function showThanks(appt) {
     const s = E.getService(appt.serviceId);
     const p = E.getPro(appt.professionalId);
+    const pay = C.payment || {};
     const msg = E.fillTemplate(C.reminders.templates.booked, E.messageData(appt));
     const waClient = E.whatsappLink(appt.clientPhone, msg);
-    const waSalon = E.whatsappLink(C.business.phoneWhatsApp, "Nuevo turno: " + s.name + " con " + p.name + " el " + appt.date + " " + appt.time + " — " + appt.clientName + " " + appt.clientPhone);
+    const waSalon = E.whatsappLink(
+      C.business.phoneWhatsApp,
+      "Nuevo turno: " + s.name + " con " + p.name + " el " + appt.date + " " + appt.time +
+      " — " + appt.clientName + " " + appt.clientPhone +
+      (pay.alias ? " · Seña a " + pay.alias : "")
+    );
+    const payInfo = pay.mode === "alias" && pay.alias
+      ? `<div class="alias-box">Transferí <b>${E.money(appt.deposit)}</b> a<br><code>${pay.alias}</code><br><span class="meta">${pay.aliasLabel || "Personal Pay"}</span></div>
+         <p class="lead">Cuando transfieras, avisá por WhatsApp con el comprobante. El salón confirma la seña.</p>`
+      : `<div class="meta">Seña registrada.</div>`;
     $("#thanks").classList.add("show");
     $("#thanksBody").innerHTML = `
       <h2>Turno reservado</h2>
@@ -248,12 +265,11 @@
       <div class="summary">
         <div><span>Total</span><span>${E.money(appt.price)}</span></div>
         <div class="total"><span>Seña</span><span>${E.money(appt.deposit)}</span></div>
-        <div class="meta">${C.mercadoPago.enabled ? "Cuando Mercado Pago acredite la seña, el turno queda confirmado." : "Modo demo: la seña quedó marcada como acreditada. Activá Mercado Pago en config.js para cobrar de verdad."}</div>
+        ${payInfo}
       </div>
-      <p>Guardá el número del salón y el comprobante. Te vamos a recordar el turno por WhatsApp.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a class="btn" href="${waClient}" target="_blank" rel="noopener">Abrir comprobante en WhatsApp</a>
-        <a class="btn ghost" href="${waSalon}" target="_blank" rel="noopener">Avisar al salón</a>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a class="btn block" href="${waClient}" target="_blank" rel="noopener">Abrir comprobante en WhatsApp</a>
+        <a class="btn ghost block" href="${waSalon}" target="_blank" rel="noopener">Avisar al salón</a>
       </div>
     `;
   }

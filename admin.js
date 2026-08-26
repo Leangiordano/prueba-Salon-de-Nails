@@ -70,7 +70,7 @@
             <b>${a.clientName}</b> ${statusBadge(a.status)}<br>
             <span class="meta">${s ? s.name : a.serviceId} · ${p ? p.name : ""} · ${a.clientPhone}</span>
           </div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <div class="appt-actions">
             <a class="btn" href="${wa}" target="_blank" rel="noopener">WhatsApp</a>
             ${a.status === "hold" ? `<button class="btn ok" data-pay="${a.id}">Seña ok</button>` : ""}
             ${a.status !== "cancelled" ? `<button class="btn danger" data-cancel="${a.id}">Cancelar</button>` : ""}

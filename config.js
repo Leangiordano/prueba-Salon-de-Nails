@@ -6,15 +6,15 @@
 
 window.AGENDA_CONFIG = {
   business: {
-    name: "Prueba Nails",
+    name: "Atelier Nails",
     tagline: "Manicura, pedicura y estética",
     description:
       "Reservá tu turno online. Elegí el servicio, la profesional y el horario. La seña se acredita directo a la cuenta del salón.",
-    address: "Palos 471, Buenos Aires, Argentina",
-    phoneDisplay: "11 5319-5024",
-    phoneWhatsApp: "5491153195024", // formato internacional sin + ni espacios
-    instagram: "leangiordano",
-    email: "lea2914@gmail.com",
+    address: "Tu dirección, Buenos Aires, Argentina",
+    phoneDisplay: "11 0000-0000",
+    phoneWhatsApp: "5491100000000", // formato internacional sin + ni espacios
+    instagram: "tuinstagram",
+    email: "hola@tudominio.com",
     timezone: "America/Argentina/Buenos_Aires",
     currency: "ARS",
     currencySymbol: "$"
@@ -37,10 +37,10 @@ window.AGENDA_CONFIG = {
     holdMinutes: 15,              // reserva temporal hasta pagar la seña
     requireDeposit: true,
     depositType: "percent",       // "percent" | "fixed"
-    depositPercent: 50,           // 50% de seña
+    depositPercent: 30,           // 30% de seña
     depositFixed: 5000,           // si depositType = "fixed"
     allowPayLater: false,         // si true, permite reservar sin seña
-    cancellationHours: 24
+    cancellationHours: 12
   },
 
   hours: {
@@ -234,6 +234,14 @@ window.AGENDA_CONFIG = {
     }
   },
 
+  payment: {
+    mode: "alias",
+    alias: "lgiordano2.ppay",
+    aliasLabel: "Personal Pay",
+    instructions:
+      "Transferí la seña a este alias. Después avisá por WhatsApp con el comprobante."
+  },
+
   mercadoPago: {
     enabled: false,
     publicKey: "APP_USR-xxxxxxxx",
@@ -246,7 +254,7 @@ window.AGENDA_CONFIG = {
   },
 
   admin: {
-    pin: "2914",
+    pin: "2468",
     storageKey: "agenda_propia_v1"
   }
 };
