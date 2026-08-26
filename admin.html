@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin · Agenda</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="./">Volver al sitio</a>
+      <nav class="nav-links">
+        <span id="adminBiz"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="lock" class="hero-card" style="max-width:420px;margin:40px auto;">
+      <div class="kicker">Panel</div>
+      <h1>Admin</h1>
+      <p class="lead">Ingresá el PIN de config.js (por defecto 2468). Cambialo antes de publicar.</p>
+      <label>PIN</label>
+      <input id="pin" type="password" inputmode="numeric" />
+      <p><button class="btn" id="unlock">Entrar</button></p>
+    </section>
+
+    <section id="desk" class="admin-grid" hidden>
+      <aside>
+        <div class="panel">
+          <div class="kicker">Agenda</div>
+          <h2 style="margin:6px 0 12px">Hoy y próximos</h2>
+          <label>Día</label>
+          <input type="date" id="adminDate" />
+          <label>Profesional</label>
+          <select id="adminPro"></select>
+          <p style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+            <button class="btn ghost" id="btnExport">Exportar JSON</button>
+            <button class="btn ghost" id="btnImport">Importar</button>
+          </p>
+          <input type="file" id="fileImport" accept="application/json" hidden />
+        </div>
+        <div class="panel" style="margin-top:12px">
+          <div class="kicker">Recordatorios</div>
+          <p class="lead">WhatsApp no sale solo hasta que conectes la API. Desde acá mandás el mensaje con un toque.</p>
+          <button class="btn" id="btnRemindDay">Recordatorios del día elegido</button>
+        </div>
+      </aside>
+      <div>
+        <div class="panel" id="dayList"></div>
+        <div class="panel" style="margin-top:12px">
+          <div class="kicker">Todos los turnos</div>
+          <div style="overflow:auto">
+            <table class="table" id="allTable"></table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast"></div>
+  <script src="config.js"></script>
+  <script src="engine.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

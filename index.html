@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agenda online</title>
+  <meta name="theme-color" content="#7A3048" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="./" id="logoText">ATELIER</a>
+      <nav class="nav-links">
+        <a id="waHeader" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="kicker">Agenda online propia</div>
+        <h1 id="bizName">Atelier Nails</h1>
+        <p class="lead" id="tagline"></p>
+        <p class="lead" id="desc"></p>
+        <div class="steps">
+          <span class="chip active">1. Servicio</span>
+          <span class="chip">2. Profesional</span>
+          <span class="chip">3. Horario</span>
+          <span class="chip">4. Seña</span>
+        </div>
+      </div>
+      <aside class="info-card">
+        <div class="info-row">📍 <b id="addr"></b></div>
+        <div class="info-row">📞 <b id="phone"></b></div>
+        <div class="info-row">📷 <a id="ig" href="#" target="_blank" rel="noopener"></a></div>
+        <div class="info-row">🕒 <span id="hours"></span></div>
+        <div class="meta" style="margin-top:10px">Profesionales</div>
+        <div class="pros" id="pros"></div>
+      </aside>
+    </section>
+
+    <section class="layout">
+      <aside class="side">
+        <input class="search" id="q" placeholder="¿Qué servicio buscás?" />
+        <div id="cats"></div>
+      </aside>
+      <div>
+        <div class="svc-list" id="services"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <button class="close" id="closeModal" aria-label="Cerrar">×</button>
+      <h2 id="mTitle">Reservar</h2>
+      <label>Profesional</label>
+      <div class="pro-pick" id="mPros"></div>
+      <label>Día</label>
+      <div class="week" id="mDays"></div>
+      <label>Horario disponible</label>
+      <div class="slots" id="mSlots"></div>
+      <form id="bookingForm">
+        <div class="grid-2">
+          <div>
+            <label>Tu nombre</label>
+            <input id="fName" required autocomplete="name" />
+          </div>
+          <div>
+            <label>WhatsApp</label>
+            <input id="fPhone" required inputmode="tel" placeholder="11 1234-5678" />
+          </div>
+        </div>
+        <label>Email (para el comprobante de Mercado Pago)</label>
+        <input id="fEmail" type="email" autocomplete="email" />
+        <label>Notas (opcional)</label>
+        <textarea id="fNotes" rows="2" placeholder="Alergias, diseño que querés, etc."></textarea>
+        <div class="summary" id="mSum"></div>
+        <button class="btn" id="confirmBtn" type="submit">Pagar seña y reservar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay" id="thanks">
+    <div class="modal">
+      <button class="close" id="closeThanks">×</button>
+      <div id="thanksBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="config.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

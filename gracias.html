@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seña acreditada</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap" style="padding:48px 0">
+    <div class="hero-card" style="max-width:560px;margin:auto">
+      <div class="kicker">Pago</div>
+      <h1>Seña acreditada</h1>
+      <p class="lead">Mercado Pago informó el cobro. Tu turno quedó confirmado. Te vamos a recordar por WhatsApp.</p>
+      <p><a class="btn" href="./">Volver al inicio</a></p>
+    </div>
+  </main>
+  <script src="config.js"></script>
+  <script src="engine.js"></script>
+  <script>
+    const id = new URLSearchParams(location.search).get("turno");
+    if (id && window.AgendaEngine) {
+      AgendaEngine.confirmPayment(id, "mercadopago");
+    }
+  </script>
+</body>
+</html>
