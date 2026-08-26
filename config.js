@@ -13,7 +13,7 @@ window.AGENDA_CONFIG = {
     address: "Palos 471, Buenos Aires, Argentina",
     phoneDisplay: "11 5319-5024",
     phoneWhatsApp: "5491153195024", // formato internacional sin + ni espacios
-    instagram: "@leangiordano",
+    instagram: "leangiordano",
     email: "lea2914@gmail.com",
     timezone: "America/Argentina/Buenos_Aires",
     currency: "ARS",
