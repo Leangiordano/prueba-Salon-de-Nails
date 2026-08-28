@@ -1,7 +1,5 @@
 /* ============================================================
    AGENDA PROPIA — Configuración del negocio
-   Editá este archivo para personalizar TODO:
-   nombre, colores, servicios, profesionales, horarios, seña, WhatsApp.
    ============================================================ */
 
 window.AGENDA_CONFIG = {
@@ -63,316 +61,30 @@ window.AGENDA_CONFIG = {
   ],
 
   services: [
-    {
-      id: "full-set",
-      category: "esculpidas",
-      name: "Full set",
-      description: "Primera puesta de uñas esculpidas.",
-      duration: 120,
-      price: 34000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "service-esculpidas",
-      category: "esculpidas",
-      name: "Service",
-      description: "Mantenimiento de esculpidas.",
-      duration: 90,
-      price: 30000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "capping-gel",
-      category: "esculpidas",
-      name: "Capping gel",
-      description: "Refuerzo con gel sobre uña natural.",
-      duration: 75,
-      price: 27000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "soft-gel",
-      category: "esculpidas",
-      name: "Soft gel",
-      description: "Extensión con tips de soft gel.",
-      duration: 75,
-      price: 25000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "capping-semi",
-      category: "esculpidas",
-      name: "Capping semipermanente",
-      description: "Capping + esmaltado semipermanente.",
-      duration: 60,
-      price: 23000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "retirado",
-      category: "esculpidas",
-      name: "Retirado",
-      description: "Retiro de esculpidas, capping o soft gel.",
-      duration: 30,
-      price: 10000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "pedicuria",
-      category: "pies",
-      name: "Pedicuría",
-      description: "Pedicuría completa.",
-      duration: 75,
-      price: 28000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "belleza-pies",
-      category: "pies",
-      name: "Belleza de pies",
-      description: "Belleza de pies.",
-      duration: 50,
-      price: 22000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "extensiones-veganas",
-      category: "pestanas",
-      name: "Extensiones de pestañas veganas",
-      description: "Extensiones veganas.",
-      duration: 120,
-      price: 30000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "lifting-pestanas",
-      category: "pestanas",
-      name: "Lifting de pestañas coreano",
-      description: "Curvado permanente desde la raíz + tinte negro intenso. Efecto rímel 24 hs, sin extensiones.",
-      duration: 60,
-      price: 18000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "depi-cejas",
-      category: "cejas",
-      name: "Depilación de cejas",
-      description: "Depilación de cejas.",
-      duration: 20,
-      price: 8000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "laminado-cejas",
-      category: "cejas",
-      name: "Laminado de cejas",
-      description: "Laminado de cejas.",
-      duration: 45,
-      price: 10000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "depi-p1",
-      category: "depilacion",
-      name: "Promo 1 — Cavado + tira",
-      description: "Depilación definitiva Soprano Ice Platinum.",
-      duration: 20,
-      price: 20000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "depi-p2",
-      category: "depilacion",
-      name: "Promo 2 — Rostro completo",
-      description: "Depilación definitiva Soprano Ice Platinum.",
-      duration: 25,
-      price: 18000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "depi-p3",
-      category: "depilacion",
-      name: "Promo 3 — Cavado + tira + axila",
-      description: "Depilación definitiva Soprano Ice Platinum.",
-      duration: 25,
-      price: 20000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "depi-p4",
-      category: "depilacion",
-      name: "Promo 4 — Cavado + tira + axila + media pierna",
-      description: "Depilación definitiva Soprano Ice Platinum.",
-      duration: 40,
-      price: 22000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "depi-p5",
-      category: "depilacion",
-      name: "Promo 5 — Cavado + tira + axila + pierna completa",
-      description: "Depilación definitiva Soprano Ice Platinum.",
-      duration: 50,
-      price: 24000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "depi-p6",
-      category: "depilacion",
-      name: "Promo 6 — Bozo + mentón + cavado + tira + axila + pierna completa",
-      description: "Depilación definitiva Soprano Ice Platinum.",
-      duration: 60,
-      price: 26000,
-      professionals: ["sofia", "camila", "valentina"]
-    }
-  ],
-
-  professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "semi-manos",
-      category: "manos",
-      name: "Esmaltado semipermanente",
-      description: "Manicura completa + color semipermanente. Secado en cabina LED.",
-      duration: 60,
-      price: 18000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "french",
-      category: "manos",
-      name: "French",
-      description: "French clásico o moderno sobre semipermanente.",
-      duration: 75,
-      price: 22000,
-      professionals: ["sofia", "camila"]
-    },
-    {
-      id: "cateye",
-      category: "manos",
-      name: "Cat Eye",
-      description: "Efecto ojo de gato con imán. Incluye manicura.",
-      duration: 70,
-      price: 23000,
-      professionals: ["sofia", "valentina"]
-    },
-    {
-      id: "nailart",
-      category: "manos",
-      name: "Full nail art",
-      description: "Diseño a medida en las 10 uñas.",
-      duration: 90,
-      price: 28000,
-      professionals: ["sofia"]
-    },
-    {
-      id: "kapping",
-      category: "manos",
-      name: "Kapping / Soft gel",
-      description: "Refuerzo con gel sobre uña natural + color.",
-      duration: 90,
-      price: 26000,
-      professionals: ["sofia", "camila"]
-    },
-    {
-      id: "retiro",
-      category: "manos",
-      name: "Retiro de esmaltado",
-      description: "Retiro de semipermanente o soft gel. Sin cargo si te volvés a esmaltar.",
-      duration: 30,
-      price: 7000,
-      professionals: ["sofia", "camila", "valentina"]
-    },
-    {
-      id: "pedicuria",
-      category: "pies",
-      name: "Pedicuría",
-      description: "Belleza de pies sin esmaltado. Limado, cutículas e hidratación.",
-      duration: 50,
-      price: 15000,
-      professionals: ["camila", "valentina"]
-    },
-    {
-      id: "semi-pies",
-      category: "pies",
-      name: "Esmaltado semipermanente pies",
-      description: "Pedicura + color semipermanente.",
-      duration: 70,
-      price: 20000,
-      professionals: ["camila", "valentina"]
-    },
-    {
-      id: "spa-pies",
-      category: "pies",
-      name: "Spa de pies",
-      description: "Exfoliación, hidratación profunda y masaje.",
-      duration: 80,
-      price: 24000,
-      professionals: ["valentina"]
-    },
-    {
-      id: "cejas",
-      category: "estetica",
-      name: "Perfilado de cejas",
-      description: "Diseño y perfilado con pinza o cera.",
-      duration: 20,
-      price: 8000,
-      professionals: ["camila", "valentina"]
-    },
-    {
-      id: "limpieza",
-      category: "estetica",
-      name: "Limpieza facial",
-      description: "Limpieza profunda, extracción e hidratación.",
-      duration: 60,
-      price: 25000,
-      professionals: ["valentina"]
-    }
+    { id: "full-set", category: "esculpidas", name: "Full set", description: "Primera puesta de uñas esculpidas.", duration: 120, price: 34000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "service-esculpidas", category: "esculpidas", name: "Service", description: "Mantenimiento de esculpidas.", duration: 90, price: 30000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "capping-gel", category: "esculpidas", name: "Capping gel", description: "Refuerzo con gel sobre uña natural.", duration: 75, price: 27000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "soft-gel", category: "esculpidas", name: "Soft gel", description: "Extensión con tips de soft gel.", duration: 75, price: 25000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "capping-semi", category: "esculpidas", name: "Capping semipermanente", description: "Capping + esmaltado semipermanente.", duration: 60, price: 23000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "retirado", category: "esculpidas", name: "Retirado", description: "Retiro de esculpidas, capping o soft gel.", duration: 30, price: 10000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "pedicuria", category: "pies", name: "Pedicuría", description: "Pedicuría completa.", duration: 75, price: 28000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "belleza-pies", category: "pies", name: "Belleza de pies", description: "Belleza de pies.", duration: 50, price: 22000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "extensiones-veganas", category: "pestanas", name: "Extensiones de pestañas veganas", description: "Extensiones veganas.", duration: 120, price: 30000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "lifting-pestanas", category: "pestanas", name: "Lifting de pestañas coreano", description: "Curvado permanente desde la raíz + tinte negro intenso. Efecto rímel 24 hs, sin extensiones.", duration: 60, price: 18000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "depi-cejas", category: "cejas", name: "Depilación de cejas", description: "Depilación de cejas.", duration: 20, price: 8000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "laminado-cejas", category: "cejas", name: "Laminado de cejas", description: "Laminado de cejas.", duration: 45, price: 10000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "depi-p1", category: "depilacion", name: "Promo 1 — Cavado + tira", description: "Depilación definitiva Soprano Ice Platinum.", duration: 20, price: 20000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "depi-p2", category: "depilacion", name: "Promo 2 — Rostro completo", description: "Depilación definitiva Soprano Ice Platinum.", duration: 25, price: 18000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "depi-p3", category: "depilacion", name: "Promo 3 — Cavado + tira + axila", description: "Depilación definitiva Soprano Ice Platinum.", duration: 25, price: 20000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "depi-p4", category: "depilacion", name: "Promo 4 — Cavado + tira + axila + media pierna", description: "Depilación definitiva Soprano Ice Platinum.", duration: 40, price: 22000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "depi-p5", category: "depilacion", name: "Promo 5 — Cavado + tira + axila + pierna completa", description: "Depilación definitiva Soprano Ice Platinum.", duration: 50, price: 24000, professionals: ["sofia", "camila", "valentina"] },
+    { id: "depi-p6", category: "depilacion", name: "Promo 6 — Bozo + mentón + cavado + tira + axila + pierna completa", description: "Depilación definitiva Soprano Ice Platinum.", duration: 60, price: 26000, professionals: ["sofia", "camila", "valentina"] }
   ],
 
   professionals: [
-    {
-      id: "sofia",
-      name: "Sofía",
-      role: "Nail artist",
-      initial: "S",
-      color: "#7A3048",
-      hours: {
-        2: { start: "09:00", end: "20:00" },
-        3: { start: "09:00", end: "20:00" },
-        4: { start: "09:00", end: "20:00" },
-        5: { start: "09:00", end: "20:00" },
-        6: { start: "09:00", end: "20:00" }
-      }
-    },
-    {
-      id: "camila",
-      name: "Camila",
-      role: "Manicurista",
-      initial: "C",
-      color: "#C9A27A",
-      hours: {
-        2: { start: "09:00", end: "20:00" },
-        3: { start: "09:00", end: "20:00" },
-        4: { start: "09:00", end: "20:00" },
-        5: { start: "09:00", end: "20:00" },
-        6: { start: "09:00", end: "20:00" }
-      }
-    },
-    {
-      id: "valentina",
-      name: "Valentina",
-      role: "Estética y uñas",
-      initial: "V",
-      color: "#4A6B6A",
-      hours: {
-        2: { start: "09:00", end: "20:00" },
-        3: { start: "09:00", end: "20:00" },
-        4: { start: "09:00", end: "20:00" },
-        5: { start: "09:00", end: "20:00" },
-        6: { start: "09:00", end: "20:00" }
-      }
-    }
+    { id: "sofia", name: "Sofía", role: "Nail artist", initial: "S", color: "#7A3048", hours: { 2: { start: "09:00", end: "20:00" }, 3: { start: "09:00", end: "20:00" }, 4: { start: "09:00", end: "20:00" }, 5: { start: "09:00", end: "20:00" }, 6: { start: "09:00", end: "20:00" } } },
+    { id: "camila", name: "Camila", role: "Manicurista", initial: "C", color: "#C9A27A", hours: { 2: { start: "09:00", end: "20:00" }, 3: { start: "09:00", end: "20:00" }, 4: { start: "09:00", end: "20:00" }, 5: { start: "09:00", end: "20:00" }, 6: { start: "09:00", end: "20:00" } } },
+    { id: "valentina", name: "Valentina", role: "Estética y uñas", initial: "V", color: "#4A6B6A", hours: { 2: { start: "09:00", end: "20:00" }, 3: { start: "09:00", end: "20:00" }, 4: { start: "09:00", end: "20:00" }, 5: { start: "09:00", end: "20:00" }, 6: { start: "09:00", end: "20:00" } } }
   ],
 
   reminders: {
