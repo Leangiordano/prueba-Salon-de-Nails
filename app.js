@@ -8,7 +8,8 @@
 
   document.title = C.business.name + " | Agenda online";
   $("#bizName").textContent = C.business.name;
-  $("#logoText").textContent = C.business.name;
+  const logoImg = document.querySelector(".logo-img");
+  if (logoImg && C.business.logo) logoImg.src = C.business.logo;
   $("#tagline").textContent = C.business.tagline;
   $("#desc").textContent = C.business.description;
   $("#addr").textContent = C.business.address;

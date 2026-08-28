@@ -1,7 +1,7 @@
 :root {
-  --primary: #7A3048;
-  --primary-dark: #5C2236;
-  --accent: #C9A27A;
+  --primary: #FF4EC8;
+  --primary-dark: #C2188A;
+  --accent: #FF8AD8;
   --bg: #F7F1EC;
   --surface: #ffffff;
   --text: #2B1D22;
@@ -58,6 +58,23 @@ button, input, select, textarea { font: inherit; font-size: 16px; }
   justify-content: space-between;
   padding: 12px 0;
   min-height: 48px;
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  line-height: 0;
+  background: #000;
+}
+.logo-img {
+  height: 44px;
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  display: block;
 }
 .logo {
   font-weight: 700;
@@ -550,6 +567,7 @@ textarea { min-height: 72px; resize: vertical; }
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .logo { font-size: 12px; letter-spacing: 0.06em; }
+  .logo-img { height: 38px; max-width: 140px; }
 }
 
 /* Desktop modal centered */

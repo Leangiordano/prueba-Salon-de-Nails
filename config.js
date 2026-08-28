@@ -6,7 +6,8 @@
 
 window.AGENDA_CONFIG = {
   business: {
-    name: "Prueba Nails",
+    name: "Manos Esculpidas",
+    logo: "assets/logo-manos-esculpidas.jpg",
     tagline: "Manicura, pedicura y estética",
     description:
       "Reservá tu turno online. Elegí el servicio, la profesional y el horario. La seña se acredita directo a la cuenta del salón.",
@@ -21,9 +22,9 @@ window.AGENDA_CONFIG = {
   },
 
   brand: {
-    primary: "#7A3048",
-    primaryDark: "#5C2236",
-    accent: "#C9A27A",
+    primary: "#FF4EC8",
+    primaryDark: "#C2188A",
+    accent: "#FF8AD8",
     bg: "#F7F1EC",
     surface: "#FFFFFF",
     text: "#2B1D22",
