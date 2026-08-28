@@ -107,8 +107,10 @@ window.AGENDA_CONFIG = {
     mode: "alias",
     alias: "lgiordano2.ppay",
     aliasLabel: "Personal Pay",
+    holderName: "Leandro Rodrigo Giordano",
+    bankName: "Banco de la Nación Argentina",
     instructions:
-      "Transferí la seña a este alias. Después compartí por WhatsApp con el comprobante."
+      "Después de transferir la seña, compartí el comprobante por WhatsApp."
   },
 
   mercadoPago: {

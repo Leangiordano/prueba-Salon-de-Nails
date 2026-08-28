@@ -356,26 +356,81 @@ input, select, textarea {
 textarea { min-height: 72px; resize: vertical; }
 
 .summary {
-  background: #F7F1EC;
-  border-radius: 14px;
-  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 4px 16px 14px;
   margin: 14px 0;
 }
-.summary div {
+.sum-row {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  padding: 4px 0;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
   font-size: 14px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+.sum-row span:last-child {
+  color: var(--text);
+  font-weight: 600;
+  text-align: right;
+}
+.sum-sena {
+  border-bottom: none;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+}
+.sum-sena span:last-child {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 16px;
 }
 .total { font-weight: 800; font-size: 17px; }
-.alias-box {
-  background: #fff;
-  border: 1px dashed var(--primary);
-  border-radius: 12px;
-  padding: 12px;
-  margin-top: 10px;
+.alias-box,
+.pay-box {
+  background: #FBF7F4;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  margin-top: 4px;
+}
+.pay-box-kicker {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.pay-alias {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  word-break: break-all;
+  line-height: 1.2;
+}
+.pay-holder {
+  margin-top: 8px;
+}
+.pay-name {
+  font-weight: 700;
   font-size: 14px;
+  color: var(--text);
+}
+.pay-bank {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.pay-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
 }
 .alias-box code {
   font-weight: 700;

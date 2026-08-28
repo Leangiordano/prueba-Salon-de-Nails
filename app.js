@@ -175,18 +175,46 @@
 
     const dep = E.depositFor(s);
     const pay = C.payment || {};
-    const aliasBlock = pay.mode === "alias" && pay.alias
-      ? `<div class="alias-box">Seña por transferencia<br><code>${pay.alias}</code><br><span class="meta">${pay.aliasLabel || "Alias"} · ${pay.instructions || ""}</span></div>`
-      : `<div class="meta">El resto se abona en el salón.</div>`;
-    $("#mSum").innerHTML = `
-      <div><span>Servicio</span><span>${s.name}</span></div>
-      <div><span>Duración</span><span>${s.duration} min</span></div>
-      <div><span>Total</span><span>${E.money(s.price)}</span></div>
-      <div class="total"><span>Seña ahora</span><span>${E.money(dep)}</span></div>
-      ${aliasBlock}
-    `;
+    $("#mSum").innerHTML = renderPayCard({
+      serviceName: s.name,
+      duration: s.duration,
+      total: s.price,
+      deposit: dep,
+      pay
+    });
     $("#confirmBtn").disabled = !(state.serviceId && state.professionalId && state.date && state.time);
-    $("#confirmBtn").textContent = pay.mode === "alias" ? "Reservar y ver datos de seña" : "Pagar seña y reservar";
+    $("#confirmBtn").textContent = pay.mode === "alias" ? "Reservar turno" : "Pagar seña y reservar";
+  }
+
+
+  function escapeHtml(str) {
+    return String(str || "").replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[c]));
+  }
+
+  function renderPayCard({ serviceName, duration, total, deposit, pay, compact }) {
+    const holder = pay.holderName || "";
+    const bank = pay.bankName || "";
+    const alias = pay.alias || "";
+    const aliasBlock = pay.mode === "alias" && alias ? `
+      <div class="pay-box">
+        <div class="pay-box-kicker">Transferir seña</div>
+        <div class="pay-alias">${escapeHtml(alias)}</div>
+        <div class="pay-holder">
+          ${holder ? `<div class="pay-name">${escapeHtml(holder)}</div>` : ""}
+          ${bank ? `<div class="pay-bank">${escapeHtml(bank)}</div>` : ""}
+        </div>
+        <p class="pay-note">Verificá que el titular coincida con el alias. Después de abonar, compartí el comprobante por WhatsApp.</p>
+      </div>` : `<div class="meta">El resto se abona en el salón.</div>`;
+    return `
+      <div class="summary">
+        <div class="sum-row"><span>Servicio</span><span>${escapeHtml(serviceName)}</span></div>
+        <div class="sum-row"><span>Duración</span><span>${duration} min</span></div>
+        <div class="sum-row"><span>Total</span><span>${E.money(total)}</span></div>
+        <div class="sum-row sum-sena"><span>Seña</span><span>${E.money(deposit)}</span></div>
+        ${aliasBlock}
+      </div>`;
   }
 
   function pickFirstAvailable() { return null; }
@@ -251,19 +279,18 @@
       " — " + appt.clientName + " " + appt.clientPhone +
       (pay.alias ? " · Seña a " + pay.alias : "")
     );
-    const payInfo = pay.mode === "alias" && pay.alias
-      ? `<div class="alias-box">Transferí <b>${E.money(appt.deposit)}</b> a<br><code>${pay.alias}</code><br><span class="meta">${pay.aliasLabel || "Personal Pay"}</span></div>
-         <p class="lead">Cuando transfieras, avisá por WhatsApp con el comprobante. El salón confirma la seña.</p>`
-      : `<div class="meta">Seña registrada.</div>`;
     $("#thanks").classList.add("show");
     $("#thanksBody").innerHTML = `
       <h2>Turno reservado</h2>
       <p>${s.name} con ${p.name}<br>${E.formatDateHuman(appt.date)} a las ${appt.time}</p>
-      <div class="summary">
-        <div><span>Total</span><span>${E.money(appt.price)}</span></div>
-        <div class="total"><span>Seña</span><span>${E.money(appt.deposit)}</span></div>
-        ${payInfo}
-      </div>
+      ${renderPayCard({
+        serviceName: s.name,
+        duration: s.duration,
+        total: appt.price,
+        deposit: appt.deposit,
+        pay,
+        compact: true
+      })}
       <div style="display:flex;flex-direction:column;gap:8px">
         <a class="btn block" href="${waClient}" target="_blank" rel="noopener">Abrir comprobante en WhatsApp</a>
         <a class="btn ghost block" href="${waSalon}" target="_blank" rel="noopener">Avisar al salón</a>
