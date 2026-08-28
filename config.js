@@ -46,12 +46,12 @@ window.AGENDA_CONFIG = {
 
   hours: {
     0: null,
-    1: { start: "10:00", end: "19:00" },
-    2: { start: "10:00", end: "19:00" },
-    3: { start: "10:00", end: "20:00" },
-    4: { start: "10:00", end: "19:00" },
-    5: { start: "10:00", end: "19:00" },
-    6: { start: "10:00", end: "19:00" }
+    1: null,
+    2: { start: "09:00", end: "20:00" },
+    3: { start: "09:00", end: "20:00" },
+    4: { start: "09:00", end: "20:00" },
+    5: { start: "09:00", end: "20:00" },
+    6: { start: "09:00", end: "20:00" }
   },
 
   categories: [
