@@ -60,20 +60,22 @@ button, input, select, textarea { font: inherit; font-size: 16px; }
   min-height: 48px;
 }
 .logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+  display: block;
   flex-shrink: 0;
+  width: 168px;
+  height: 56px;
   border-radius: 10px;
   overflow: hidden;
-  line-height: 0;
   background: #000;
+  line-height: 0;
 }
 .logo-img {
-  height: 44px;
-  width: auto;
-  max-width: 170px;
-  object-fit: contain;
+  width: 168px;
+  height: 56px;
+  object-fit: cover;
+  object-position: center 46%;
+  transform: scale(1.55);
+  transform-origin: center center;
   display: block;
 }
 .logo {
@@ -174,6 +176,30 @@ h1 {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
+}
+.how {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.how li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.35;
+}
+.how li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
 }
 
 /* Layout servicios */
@@ -537,8 +563,15 @@ textarea { min-height: 72px; resize: vertical; }
 .toast.show { display: block; }
 
 /* ========== MOBILE ========== */
+img, svg, video { max-width: 100%; height: auto; }
+.logo-img { max-width: none; height: 56px; }
+
 @media (max-width: 860px) {
-  .wrap { width: calc(100% - 20px); }
+  .wrap { width: min(100% - 20px, 100%); max-width: 100%; }
+  .topbar-inner { padding: 10px 0; gap: 10px; }
+  .logo-link { width: 196px; height: 64px; }
+  .logo-img { width: 196px; height: 64px; transform: scale(1.7); }
+  .nav-links a { font-size: 13px; padding: 8px 2px; }
 
   .hero {
     grid-template-columns: 1fr;
@@ -622,7 +655,10 @@ textarea { min-height: 72px; resize: vertical; }
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .logo { font-size: 12px; letter-spacing: 0.06em; }
-  .logo-img { height: 38px; max-width: 140px; }
+  .logo-link { width: 180px; height: 58px; }
+  .logo-img { width: 180px; height: 58px; transform: scale(1.65); }
+  h1 { font-size: 22px; }
+  .hero-card, .info-card { padding: 14px; }
 }
 
 /* Desktop modal centered */
@@ -636,4 +672,14 @@ textarea { min-height: 72px; resize: vertical; }
     padding: 22px;
     max-height: 90vh;
   }
+}
+
+
+/* Extra mobile safety */
+.svc h3, .sum-row span, .info-row, .pay-alias {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.modal, .hero-card, .info-card, .svc, .summary, .pay-box {
+  max-width: 100%;
 }

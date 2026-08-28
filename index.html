@@ -2,7 +2,7 @@
 <html lang="es-AR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Manos Esculpidas | Agenda online</title>
   <meta name="theme-color" content="#FF4EC8" />
   <link rel="icon" href="assets/logo-manos-esculpidas.jpg" />
@@ -28,12 +28,11 @@
         <h1 id="bizName">Manos Esculpidas</h1>
         <p class="lead" id="tagline"></p>
         <p class="lead" id="desc"></p>
-        <div class="steps">
-          <span class="chip active">1. Servicio</span>
-          <span class="chip">2. Profesional</span>
-          <span class="chip">3. Horario</span>
-          <span class="chip">4. Seña</span>
-        </div>
+        <ol class="how">
+          <li>Elegí el servicio</li>
+          <li>Reservá profesional y horario</li>
+          <li>Dejá la seña por transferencia</li>
+        </ol>
       </div>
       <aside class="info-card">
         <div class="info-row">📍 <b id="addr"></b></div>
@@ -77,7 +76,7 @@
             <input id="fPhone" required inputmode="tel" placeholder="11 1234-5678" />
           </div>
         </div>
-        <label>Email (para el comprobante de Mercado Pago)</label>
+        <label>Email (opcional)</label>
         <input id="fEmail" type="email" autocomplete="email" />
         <label>Notas (opcional)</label>
         <textarea id="fNotes" rows="2" placeholder="Alergias, diseño que querés, etc."></textarea>
