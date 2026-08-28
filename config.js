@@ -11,11 +11,11 @@ window.AGENDA_CONFIG = {
     tagline: "Manicura, pedicura y estética",
     description:
       "Reservá tu turno online. Elegí el servicio, la profesional y el horario. La seña se acredita directo a la cuenta del salón.",
-    address: "Palos 471, Buenos Aires, Argentina",
-    phoneDisplay: "11 5319-5024",
-    phoneWhatsApp: "5491153195024",
-    instagram: "leangiordano",
-    email: "lea2914@gmail.com",
+    address: "Juana Gorriti 43, Ing. Maschwitz, Buenos Aires",
+    phoneDisplay: "11 6524-4920",
+    phoneWhatsApp: "5491165244920",
+    instagram: "manos.maschwitz",
+    email: "ejemplo@ejemplo.com",
     timezone: "America/Argentina/Buenos_Aires",
     currency: "ARS",
     currencySymbol: "$"
@@ -239,7 +239,7 @@ window.AGENDA_CONFIG = {
     alias: "lgiordano2.ppay",
     aliasLabel: "Personal Pay",
     instructions:
-      "Transferí la seña a este alias. Después avisá por WhatsApp con el comprobante."
+      "Transferí la seña a este alias. Después compartí por WhatsApp con el comprobante."
   },
 
   mercadoPago: {
