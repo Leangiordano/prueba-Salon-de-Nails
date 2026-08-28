@@ -14,7 +14,7 @@ window.AGENDA_CONFIG = {
     address: "Juana Gorriti 43, Ing. Maschwitz, Buenos Aires",
     phoneDisplay: "11 6524-4920",
     phoneWhatsApp: "5491165244920",
-    instagram: "manos.maschwitz",
+    instagram: "manosesculpidas.maschwitz",
     email: "ejemplo@ejemplo.com",
     timezone: "America/Argentina/Buenos_Aires",
     currency: "ARS",
