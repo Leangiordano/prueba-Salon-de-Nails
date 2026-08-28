@@ -18,11 +18,7 @@
   $("#ig").href = "https://instagram.com/" + C.business.instagram;
   $("#waHeader").href = E.whatsappLink(C.business.phoneWhatsApp, "Hola! Quiero consultar por un turno.");
 
-  const hoursTxt = Object.entries(C.hours).map(([d, h]) => {
-    const names = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
-    return names[d] + ": " + (h ? h.start + "–" + h.end : "Cerrado");
-  }).join(" · ");
-  $("#hours").textContent = hoursTxt;
+  $("#hours").textContent = "Martes a Sábados | 09:00 a 20:00 hs";
 
   const prosBox = $("#pros");
   C.professionals.forEach((p) => {

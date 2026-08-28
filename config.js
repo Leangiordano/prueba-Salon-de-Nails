@@ -179,12 +179,11 @@ window.AGENDA_CONFIG = {
       initial: "S",
       color: "#7A3048",
       hours: {
-        1: { start: "10:00", end: "18:00" },
-        2: { start: "10:00", end: "18:00" },
-        3: { start: "11:00", end: "19:00" },
-        4: { start: "10:00", end: "18:00" },
-        5: { start: "10:00", end: "18:00" },
-        6: { start: "10:00", end: "16:00" }
+        2: { start: "09:00", end: "20:00" },
+        3: { start: "09:00", end: "20:00" },
+        4: { start: "09:00", end: "20:00" },
+        5: { start: "09:00", end: "20:00" },
+        6: { start: "09:00", end: "20:00" }
       }
     },
     {
@@ -194,12 +193,11 @@ window.AGENDA_CONFIG = {
       initial: "C",
       color: "#C9A27A",
       hours: {
-        1: { start: "12:00", end: "19:00" },
-        2: { start: "12:00", end: "19:00" },
-        3: { start: "12:00", end: "20:00" },
-        4: { start: "12:00", end: "19:00" },
-        5: { start: "12:00", end: "19:00" },
-        6: { start: "10:00", end: "19:00" }
+        2: { start: "09:00", end: "20:00" },
+        3: { start: "09:00", end: "20:00" },
+        4: { start: "09:00", end: "20:00" },
+        5: { start: "09:00", end: "20:00" },
+        6: { start: "09:00", end: "20:00" }
       }
     },
     {
@@ -209,11 +207,11 @@ window.AGENDA_CONFIG = {
       initial: "V",
       color: "#4A6B6A",
       hours: {
-        2: { start: "10:00", end: "19:00" },
-        3: { start: "10:00", end: "19:00" },
-        4: { start: "10:00", end: "19:00" },
-        5: { start: "10:00", end: "19:00" },
-        6: { start: "10:00", end: "14:00" }
+        2: { start: "09:00", end: "20:00" },
+        3: { start: "09:00", end: "20:00" },
+        4: { start: "09:00", end: "20:00" },
+        5: { start: "09:00", end: "20:00" },
+        6: { start: "09:00", end: "20:00" }
       }
     }
   ],
