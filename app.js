@@ -23,10 +23,8 @@
   const prosBox = $("#pros");
   C.professionals.forEach((p) => {
     const el = document.createElement("div");
-    el.className = "avatar";
-    el.style.background = p.color;
-    el.title = p.name + " · " + p.role;
-    el.textContent = p.initial;
+    el.className = "pro-mini";
+    el.innerHTML = `<span class="avatar" style="background:${p.color}">${p.initial}</span><span><b>${p.name}</b><i>${p.role}</i></span>`;
     prosBox.appendChild(el);
   });
 
@@ -111,18 +109,30 @@
     const box = $("#mPros");
     box.innerHTML = "";
     if (!state.professionalId && pros.length === 1) state.professionalId = pros[0].id;
-    const any = document.createElement("div");
+    const any = document.createElement("button");
+    any.type = "button";
     any.className = "pro" + (!state.professionalId ? " selected" : "");
-    any.innerHTML = "<b>Cualquiera</b><div class='meta'>Primera disponible</div>";
-    any.onclick = () => { state.professionalId = pickFirstAvailable(pros); state.time = null; drawModal(); };
-    // "Cualquiera" actually picks first with slots when date is chosen; keep explicit picks
-    box.appendChild(any);
+    any.innerHTML = `
+      <span class="pro-avatar pro-avatar-any">+</span>
+      <span class="pro-copy">
+        <strong>Primera disponible</strong>
+        <em>Te asignamos la profesional libre</em>
+      </span>
+    `;
     any.onclick = () => { state.professionalId = null; state.time = null; drawModal(); };
+    box.appendChild(any);
 
     pros.forEach((p) => {
-      const el = document.createElement("div");
+      const el = document.createElement("button");
+      el.type = "button";
       el.className = "pro" + (state.professionalId === p.id ? " selected" : "");
-      el.innerHTML = `<b>${p.name}</b><div class="meta">${p.role}</div>`;
+      el.innerHTML = `
+        <span class="pro-avatar" style="background:${p.color}">${p.initial}</span>
+        <span class="pro-copy">
+          <strong>${p.name}</strong>
+          <em>${p.role}</em>
+        </span>
+      `;
       el.onclick = () => { state.professionalId = p.id; state.time = null; drawModal(); };
       box.appendChild(el);
     });
