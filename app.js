@@ -157,19 +157,24 @@
         ? [E.getPro(state.professionalId)]
         : pros;
       let anySlot = false;
+      const showGroups = !state.professionalId;
       targetPros.forEach((p) => {
         const slots = E.availableSlots(state.date, s.id, p.id).filter((x) => x.available);
         if (!slots.length) return;
         anySlot = true;
-        if (!state.professionalId) {
+        const group = document.createElement("div");
+        group.className = "slot-group";
+        if (showGroups) {
           const lab = document.createElement("div");
-          lab.className = "meta";
-          lab.style.flexBasis = "100%";
-          lab.textContent = p.name;
-          slotsBox.appendChild(lab);
+          lab.className = "slot-group-title";
+          lab.innerHTML = `<span class="slot-dot" style="background:${p.color}"></span>${p.name}`;
+          group.appendChild(lab);
         }
+        const grid = document.createElement("div");
+        grid.className = "slots-grid";
         slots.forEach((sl) => {
-          const el = document.createElement("div");
+          const el = document.createElement("button");
+          el.type = "button";
           el.className = "slot" + (state.time === sl.time && state.professionalId === p.id ? " selected" : "");
           el.textContent = sl.time;
           el.onclick = () => {
@@ -177,8 +182,10 @@
             state.professionalId = p.id;
             drawModal();
           };
-          slotsBox.appendChild(el);
+          grid.appendChild(el);
         });
+        group.appendChild(grid);
+        slotsBox.appendChild(group);
       });
       if (!anySlot) slotsBox.innerHTML = "<p class='lead'>No hay horarios libres ese día para este servicio.</p>";
     }

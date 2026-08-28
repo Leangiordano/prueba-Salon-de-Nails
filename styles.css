@@ -397,6 +397,30 @@ h1 {
 }
 .slots {
   display: grid;
+  gap: 14px;
+}
+.slot-group {
+  display: grid;
+  gap: 8px;
+}
+.slot-group-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  padding: 2px 2px 0;
+}
+.slot-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.slots-grid {
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
   gap: 8px;
 }
@@ -409,6 +433,9 @@ h1 {
   min-height: 44px;
   display: grid;
   place-items: center;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
 }
 .slot.busy {
   opacity: 0.35;
@@ -680,7 +707,7 @@ img, svg, video { max-width: 100%; }
   }
   .day { min-height: 52px; font-size: 12px; }
 
-  .slots {
+  .slots-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -700,7 +727,7 @@ img, svg, video { max-width: 100%; }
   .week {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .slots {
+  .slots-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .logo { font-size: 12px; letter-spacing: 0.06em; }
