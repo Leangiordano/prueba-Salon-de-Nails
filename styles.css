@@ -62,20 +62,17 @@ button, input, select, textarea { font: inherit; font-size: 16px; }
 .logo-link {
   display: block;
   flex-shrink: 0;
-  width: 168px;
-  height: 56px;
-  border-radius: 10px;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
   overflow: hidden;
   background: #000;
   line-height: 0;
 }
 .logo-img {
-  width: 168px;
-  height: 56px;
-  object-fit: cover;
-  object-position: center 46%;
-  transform: scale(1.55);
-  transform-origin: center center;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
   display: block;
 }
 .logo {
@@ -563,14 +560,14 @@ textarea { min-height: 72px; resize: vertical; }
 .toast.show { display: block; }
 
 /* ========== MOBILE ========== */
-img, svg, video { max-width: 100%; height: auto; }
-.logo-img { max-width: none; height: 56px; }
+img, svg, video { max-width: 100%; }
+.logo-img { max-width: none; width: 64px; height: 64px; }
 
 @media (max-width: 860px) {
-  .wrap { width: min(100% - 20px, 100%); max-width: 100%; }
-  .topbar-inner { padding: 10px 0; gap: 10px; }
-  .logo-link { width: 196px; height: 64px; }
-  .logo-img { width: 196px; height: 64px; transform: scale(1.7); }
+  html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+  .wrap { width: calc(100% - 20px); max-width: 100%; }
+  .topbar-inner { padding: 8px 0; gap: 10px; }
+  .logo-link, .logo-img { width: 72px; height: 72px; }
   .nav-links a { font-size: 13px; padding: 8px 2px; }
 
   .hero {
@@ -594,11 +591,9 @@ img, svg, video { max-width: 100%; height: auto; }
   .side .search { margin-bottom: 8px; }
   #cats {
     display: flex;
+    flex-wrap: wrap;
     gap: 6px;
-    overflow-x: auto;
     padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
   }
   #cats::-webkit-scrollbar { display: none; }
   .cat-btn {
@@ -643,7 +638,7 @@ img, svg, video { max-width: 100%; height: auto; }
   }
   .table {
     font-size: 12px;
-    min-width: 520px;
+    min-width: 0;
   }
 }
 
@@ -655,8 +650,7 @@ img, svg, video { max-width: 100%; height: auto; }
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .logo { font-size: 12px; letter-spacing: 0.06em; }
-  .logo-link { width: 180px; height: 58px; }
-  .logo-img { width: 180px; height: 58px; transform: scale(1.65); }
+  .logo-link, .logo-img { width: 68px; height: 68px; }
   h1 { font-size: 22px; }
   .hero-card, .info-card { padding: 14px; }
 }
